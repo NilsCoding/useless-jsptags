@@ -16,12 +16,14 @@ The webserver will look inside the JAR in the `META-INF/tags` folder to find and
 
 The JSP API is needed as a compile dependency.
 
-```<dependency>
+```
+<dependency>
     <groupId>javax.servlet.jsp</groupId>
     <artifactId>jsp-api</artifactId>
     <version>2.0</version>
     <scope>provided</scope>
-</dependency>```
+</dependency>
+```
 
 Using the scope `provided` causes the JSP API jar file not to be included in a referring web project. This prevents problems with the JSP API in the webserver.
 
