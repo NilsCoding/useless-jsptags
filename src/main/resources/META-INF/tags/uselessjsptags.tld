@@ -25,4 +25,15 @@
         <tag-class>com.github.nilscoding.uselessjsptags.ReverseTag</tag-class>
         <body-content>tagdependent</body-content>
     </tag>
+    <tag>
+        <name>nooutput</name>
+        <tag-class>com.github.nilscoding.uselessjsptags.NoOutputTag</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <name>debugOutput</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
+        </attribute>
+    </tag>
 </taglib>
