@@ -8,32 +8,72 @@
         <name>empty</name>
         <tag-class>com.github.nilscoding.uselessjsptags.EmptyTag</tag-class>
         <body-content>tagdependent</body-content>
+        <description>An empty tag, discarding whatever you write inside its body.</description>
     </tag>
     <tag>
         <name>counter</name>
         <tag-class>com.github.nilscoding.uselessjsptags.SessionCounterTag</tag-class>
         <body-content>empty</body-content>
+        <description>A counter.</description>
         <attribute>
             <name>action</name>
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
             <type>java.lang.String</type>
+            <description>Supported values: (empty), increase, inc, ++, print, out</description>
         </attribute>
     </tag>
     <tag>
         <name>reverse</name>
         <tag-class>com.github.nilscoding.uselessjsptags.ReverseTag</tag-class>
         <body-content>tagdependent</body-content>
+        <description>A tag reversing its body.</description>
     </tag>
     <tag>
         <name>nooutput</name>
         <tag-class>com.github.nilscoding.uselessjsptags.NoOutputTag</tag-class>
         <body-content>JSP</body-content>
+        <description>A tag which evaluates the body but does not write anything to the JSP. Terms and conditions may apply.</description>
         <attribute>
             <name>debugOutput</name>
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
             <type>java.lang.String</type>
+            <description>true to print the body as a HTML comment</description>
+        </attribute>
+    </tag>
+    <tag>
+        <name>scripting</name>
+        <tag-class>com.github.nilscoding.uselessjsptags.DynamicScriptTag</tag-class>
+        <body-content>JSP</body-content>
+        <description>A tag which evaluates the body via Scripting Engine (JSR-223). Populates _pageContext, _request, _response, _session to script.</description>
+        <attribute>
+            <name>scriptTypeName</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
+            <description>JSR-223 compliant engine name, default: JavaScript</description>
+        </attribute>
+        <attribute>
+            <name>allowDirectWrite</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
+            <description>true to allow direct output to JSP page by passing the output stream to the engine context (default: false)</description>
+        </attribute>
+        <attribute>
+            <name>resultVar</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
+            <description>optional, name of result variable</description>
+        </attribute>
+        <attribute>
+            <name>resultVarScope</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>int</type>
+            <description>optional, scope of result variable, must be one of PageContext.*_SCOPE values</description>
         </attribute>
     </tag>
 </taglib>
