@@ -75,5 +75,38 @@
             <type>int</type>
             <description>optional, scope of result variable, must be one of PageContext.*_SCOPE values</description>
         </attribute>
+        <attribute>
+            <name>scope</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+            <description>optional, scope of result variable, preferred over resultVarScope</description>
+        </attribute>
+    </tag>
+    <tag>
+        <name>newinstance</name>
+        <tag-class>com.github.nilscoding.uselessjsptags.NewInstanceTag</tag-class>
+        <body-content>empty</body-content>
+        <description>Creates a new object instance.</description>
+        <dynamic-attributes>true</dynamic-attributes>
+        <attribute>
+            <name>var</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
+            <description>name of new variable in scope</description>
+        </attribute>
+        <attribute>
+            <name>type</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
+            <description>type, a class name</description>
+        </attribute>
+        <attribute>
+            <name>scope</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+            <description>optional, scope of result variable</description>
+        </attribute>
     </tag>
 </taglib>

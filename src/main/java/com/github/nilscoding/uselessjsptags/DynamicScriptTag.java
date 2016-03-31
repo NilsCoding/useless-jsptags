@@ -22,6 +22,7 @@ public class DynamicScriptTag extends BodyTagSupport {
     protected String allowDirectWrite = "false";
     protected String resultVar;
     protected int resultVarScope;
+    protected String scope;
     
     public DynamicScriptTag() {
         super();
@@ -41,6 +42,10 @@ public class DynamicScriptTag extends BodyTagSupport {
 
     public void setResultVarScope(int resultVarScope) {
         this.resultVarScope = resultVarScope;
+    }
+
+    public void setScope(String scope) {
+        this.scope = scope;
     }
 
     @Override
@@ -75,7 +80,14 @@ public class DynamicScriptTag extends BodyTagSupport {
                     // evaluate content
                     Object resultOject = engine.eval(bodyStr);
                     if (this.resultVar != null) {
-                        pageContext.setAttribute(this.resultVar, resultOject, this.resultVarScope);
+                        int resVarScope = this.resultVarScope;
+                        if (Utils.isEmptyString(this.scope) == false) {
+                            int tempScope = ScopeUtils.resolveScopeByName(scope, -1000000);
+                            if (tempScope != -1000000) {
+                                resVarScope = tempScope;
+                            }
+                        }
+                        pageContext.setAttribute(this.resultVar, resultOject, resVarScope);
                     }
                 }
             } catch (Exception ex) {
