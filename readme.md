@@ -20,12 +20,14 @@ The JSP API is needed as a compile dependency.
 <dependency>
     <groupId>javax.servlet.jsp</groupId>
     <artifactId>jsp-api</artifactId>
-    <version>2.0</version>
+    <version>2.1</version>
     <scope>provided</scope>
 </dependency>
 ```
 
 Using the scope `provided` causes the JSP API jar file not to be included in a referring web project. This prevents problems with the JSP API in the webserver.
+
+(Since project version 1.1.0 the required JSP API version is 2.1)
 
 # further reading
 
